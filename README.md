@@ -170,14 +170,14 @@ class Main {
 
 ### Object Class Methods
 
-| Method   | Description                                                     |
-|----------|-----------------------------------------------------------------|
-| clone    | create new object instance that duplicates the current instance |
-| hashCode | get a hash code for current instance                            |
-| getClass | return type information for the current instance                |
-| finalize | handle special resource cleanup scenarios                       |
-| toString | return a string value representing the current instance         |
-| equals   | compare another object to the current instance for equality     |
+| Method     | Description                                                     |
+|------------|-----------------------------------------------------------------|
+| `clone`    | create new object instance that duplicates the current instance |
+| `hashCode` | get a hash code for current instance                            |
+| `getClass` | return type information for the current instance                |
+| `finalize` | handle special resource cleanup scenarios                       |
+| `toString` | return a string value representing the current instance         |
+| `equals`   | compare another object to the current instance for equality     |
 
 ### Equality
 
@@ -200,6 +200,8 @@ class Flight {
     }
 }
 ```
+
+##
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
