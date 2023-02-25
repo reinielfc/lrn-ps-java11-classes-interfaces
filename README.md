@@ -5,7 +5,7 @@
 3. Implementing Class Constructors and Initializers [[NOTE][m03.note]]
 4. Using Static Members [[NOTE][m04.note]]
 5. A Closer Look at Methods [[NOTE][m05.note]]
-6. Class Inheritance
+6. Class Inheritance [[NOTE][m06.note]]
 7. More About Inheritance
 8. Working with Enums
 9. Creating Abstract Relationships with Interfaces
@@ -111,6 +111,95 @@ public class Flight {
 - variable number of parameters
   - `public void addPassengers(Passenger... list) {}`
   - `flight.addPassengers(luisa, john, alice)`
+
+## 6. Class Inheritance
+
+### References to Derived Class Instances
+
+- can be assigned to base class references
+- affects available features
+  - dictated by type of reference being used to access the instance
+  - `Flight f = new CargoFlight();
+
+### Field Hiding
+
+- if your derived class declares a field that has the same name as a field in the base class
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    Flight f1 = new Flight();
+    System.out.println(f1.seats);   // 150
+    
+    CargoFlight cf = new Flight();  // (extends Flight)
+    System.out.println(cf.seats);   // 12
+    
+    Flight f2 = new CargoFlight();
+    System.out.println(f2.seats);   // 150
+  }
+} 
+```
+
+### Method Overloading
+
+- key difference b/w methods and fields
+  - for field hiding, it's the type of the _reference_ that determines which version of the field you use
+  - for method overriding, it's the type of the _instance_ that determines which version of the method you use
+
+### Object Class
+
+- root of the Java class hierarchy
+- every class has characteristics of Object
+- Object references can reference any array or class instance
+  - in Java, arrays are a type of class
+
+### Object References 
+
+```java
+class Main {
+  public static void main(String[] args) {
+    Object o = new CargoFlight();
+    // ...
+    if (o instanceof CargoFlight) {
+        CargoFlight cf = (CargoFlight) o;
+        cf.add1Package(1.0f, 2.5f, 3.0f);
+    }
+  }
+}
+```
+
+### Object Class Methods
+
+| Method   | Description                                                     |
+|----------|-----------------------------------------------------------------|
+| clone    | create new object instance that duplicates the current instance |
+| hashCode | get a hash code for current instance                            |
+| getClass | return type information for the current instance                |
+| finalize | handle special resource cleanup scenarios                       |
+| toString | return a string value representing the current instance         |
+| equals   | compare another object to the current instance for equality     |
+
+### Equality
+
+- `==` compares primitive types and references
+- `obj1 == obj2` compares if they refer to the same object
+- `Object.equals()` does the same
+  - needs to be overridden to make a different comparison
+
+```java
+class Flight {
+    // ...
+    
+    @Override
+    public boolean equals(Object obj) {
+          if (obj instanceof Flight) {
+              Flight that = (Flight) obj;
+              return this.flightNumber == that.flightNumber;
+          }
+          return false;
+    }
+}
+```
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
