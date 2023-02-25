@@ -16,19 +16,19 @@
 ### Basic Access Modifiers
 
 | Modifier  | Visibility               | Classes | Members |
-|-----------|--------------------------|---------|---------|
+| --------- | ------------------------ | ------- | ------- |
 |           | only w/i own package     | Y       | Y       |
 | `public`  | everywhere               | Y       | Y       |
 | `private` | only w/i declaring class | N*      | Y       |
 
 \* available to nested classes
 
-## 3. Implementing Class Constructors and Initializers
+## 3. Implementing Class Constructors and Initializer s
 
 ### Default Initial State of Fields
 
 | `byte`/`short`/`int`/`long` | `float`/`double` | `char`     | `boolean` | Reference types |
-|-----------------------------|------------------|------------|-----------|-----------------|
+| --------------------------- | ---------------- | ---------- | --------- | --------------- |
 | `0`                         | `0.0`            | `'\u0000'` | `false`   | `null`          |
 
 ### Number of Constructors
@@ -36,7 +36,7 @@
 - must have at least 1
 - when no explicit constructor, Java provides a default one (empty)
 
-> when overloading and calling another constructor, call to `this()` must be the first line of the constructor  
+> when overloading and calling another constructor, call to `this()` must be the first line of the constructor
 
 ### Initialization Blocks
 
@@ -57,7 +57,7 @@ public class Flight {
         for (int i = 0; i < isSeatAvailable.length; i++)
             isSeatAvailable[i] = true;
     }
-    
+
     //...
 }
 ```
@@ -71,16 +71,16 @@ public class Flight {
 ### Static Members
 
 - **static field**
-  - value not associated w/ specific instance
-  - all instances access the same value
+    - value not associated w/ specific instance
+    - all instances access the same value
 - **static method**
-  - performs action not tied to a specific instance
-  - has access to static members only
+    - performs action not tied to a specific instance
+    - has access to static members only
 - **static import**
-  - used w/ static methods
-  - allows method name to be used w/o being class qualified
-    - `import static com.pluralsight.flightapp.Flight.getAllPassengers();` 
-    - `Flight.getAllPassengers();` -> `getAllPassengers()`
+    - used w/ static methods
+    - allows method name to be used w/o being class qualified
+        - `import static com.pluralsight.flightapp.Flight.getAllPassengers();`
+        - `Flight.getAllPassengers();` -> `getAllPassengers()`
 
 ### Static Initialization Blocks
 
@@ -92,7 +92,7 @@ public class Flight {
 public class Flight {
     private int passengers, seats = 150;
     private static int allPassengers, maxPassengersPerFlight;
-    
+
     static {
         AdminService admin = new AdminService();
         admin.connect();
@@ -107,10 +107,10 @@ public class Flight {
 ## 5. A Closer Look at Methods
 
 - there's automatic type conversion when calling methods, e.g. the following method can accept a `short` type
-  - `void methodName(int num) { ... }`
+    - `void methodName(int num) { ... }`
 - variable number of parameters
-  - `public void addPassengers(Passenger... list) {}`
-  - `flight.addPassengers(luisa, john, alice)`
+    - `public void addPassengers(Passenger... list) {}`
+    - `flight.addPassengers(luisa, john, alice)`
 
 ## 6. Class Inheritance
 
@@ -118,8 +118,8 @@ public class Flight {
 
 - can be assigned to base class references
 - affects available features
-  - dictated by type of reference being used to access the instance
-  - `Flight f = new CargoFlight();
+    - dictated by type of reference being used to access the instance
+    - `Flight f = new CargoFlight();
 
 ### Field Hiding
 
@@ -127,51 +127,51 @@ public class Flight {
 
 ```java
 public class Main {
-  public static void main(String[] args) {
-    Flight f1 = new Flight();
-    System.out.println(f1.seats);   // 150
-    
-    CargoFlight cf = new Flight();  // (extends Flight)
-    System.out.println(cf.seats);   // 12
-    
-    Flight f2 = new CargoFlight();
-    System.out.println(f2.seats);   // 150
-  }
+    public static void main(String[] args) {
+        Flight f1 = new Flight();
+        System.out.println(f1.seats);   // 150
+
+        CargoFlight cf = new Flight();  // (extends Flight)
+        System.out.println(cf.seats);   // 12
+
+        Flight f2 = new CargoFlight();
+        System.out.println(f2.seats);   // 150
+    }
 } 
 ```
 
 ### Method Overloading
 
 - key difference b/w methods and fields
-  - for field hiding, it's the type of the _reference_ that determines which version of the field you use
-  - for method overriding, it's the type of the _instance_ that determines which version of the method you use
+    - for field hiding, it's the type of the _reference_ that determines which version of the field you use
+    - for method overriding, it's the type of the _instance_ that determines which version of the method you use
 
 ### Object Class
 
 - root of the Java class hierarchy
 - every class has characteristics of Object
 - Object references can reference any array or class instance
-  - in Java, arrays are a type of class
+    - in Java, arrays are a type of class
 
-### Object References 
+### Object References
 
 ```java
 class Main {
-  public static void main(String[] args) {
-    Object o = new CargoFlight();
-    // ...
-    if (o instanceof CargoFlight) {
-        CargoFlight cf = (CargoFlight) o;
-        cf.add1Package(1.0f, 2.5f, 3.0f);
+    public static void main(String[] args) {
+        Object o = new CargoFlight();
+        // ...
+        if (o instanceof CargoFlight) {
+            CargoFlight cf = (CargoFlight) o;
+            cf.add1Package(1.0f, 2.5f, 3.0f);
+        }
     }
-  }
 }
 ```
 
 ### Object Class Methods
 
 | Method     | Description                                                     |
-|------------|-----------------------------------------------------------------|
+| ---------- | --------------------------------------------------------------- |
 | `clone`    | create new object instance that duplicates the current instance |
 | `hashCode` | get a hash code for current instance                            |
 | `getClass` | return type information for the current instance                |
@@ -184,19 +184,19 @@ class Main {
 - `==` compares primitive types and references
 - `obj1 == obj2` compares if they refer to the same object
 - `Object.equals()` does the same
-  - needs to be overridden to make a different comparison
+    - needs to be overridden to make a different comparison
 
 ```java
 class Flight {
     // ...
-    
+
     @Override
     public boolean equals(Object obj) {
-          if (obj instanceof Flight) {
-              Flight that = (Flight) obj;
-              return this.flightNumber == that.flightNumber;
-          }
-          return false;
+        if (obj instanceof Flight) {
+            Flight that = (Flight) obj;
+            return this.flightNumber == that.flightNumber;
+        }
+        return false;
     }
 }
 ```
@@ -208,27 +208,27 @@ class Flight {
 - similar to special reference `this`
 - refers to current object
 - key difference
-  - treats object as an instance of the base class
-  - provides access to overridden base class members
+    - treats object as an instance of the base class
+    - provides access to overridden base class members
 
 ### Preventing Inheritance and Method Overriding
 
 - default inheritance behavior
-  - each class can be extended
-  - derived class can override any method
+    - each class can be extended
+    - derived class can override any method
 - can change this behavior w/ `final` keyword
-  - can prevent class extending
-  - can prevent method overriding
+    - can prevent class extending
+    - can prevent method overriding
 
 ### Requiring Inheritance and Method Overriding
 
 - default class usage
-  - each class can be directly instantiated
+    - each class can be directly instantiated
 - default method overriding requirements
-  - derived class option whether to override a method
+    - derived class option whether to override a method
 - can change default behavior w/ `abstract`
-  - can require inheritance to use class
-  - can require derived class to override 1+ methods
+    - can require inheritance to use class
+    - can require derived class to override 1+ methods
 
 ### Inheritance and Constructors
 
