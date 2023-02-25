@@ -4,7 +4,7 @@
 2. Understanding Java Classes and Objects [[NOTE][m02.note]]
 3. Implementing Class Constructors and Initializers [[NOTE][m03.note]]
 4. Using Static Members [[NOTE][m04.note]]
-5. A Closer Look at Methods
+5. A Closer Look at Methods [[NOTE][m05.note]]
 6. Class Inheritance
 7. More About Inheritance
 8. Working with Enums
@@ -103,6 +103,14 @@ public class Flight {
     }
 }
 ```
+
+## 5. A Closer Look at Methods
+
+- there's automatic type conversion when calling methods, e.g. the following method can accept a `short` type
+  - `void methodName(int num) { ... }`
+- variable number of parameters
+  - `public void addPassengers(Passenger... list) {}`
+  - `flight.addPassengers(luisa, john, alice)`
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
