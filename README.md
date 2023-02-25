@@ -6,7 +6,7 @@
 4. Using Static Members [[NOTE][m04.note]]
 5. A Closer Look at Methods [[NOTE][m05.note]]
 6. Class Inheritance [[NOTE][m06.note]]
-7. More About Inheritance
+7. More About Inheritance [[NOTE][m07.note]]
 8. Working with Enums
 9. Creating Abstract Relationships with Interfaces
 10. Nested Types and Anonymous Classes
@@ -201,7 +201,40 @@ class Flight {
 }
 ```
 
-##
+## 7. More About Inheritance
+
+### Special Reference: `super`
+
+- similar to special reference `this`
+- refers to current object
+- key difference
+  - treats object as an instance of the base class
+  - provides access to overridden base class members
+
+### Preventing Inheritance and Method Overriding
+
+- default inheritance behavior
+  - each class can be extended
+  - derived class can override any method
+- can change this behavior w/ `final` keyword
+  - can prevent class extending
+  - can prevent method overriding
+
+### Requiring Inheritance and Method Overriding
+
+- default class usage
+  - each class can be directly instantiated
+- default method overriding requirements
+  - derived class option whether to override a method
+- can change default behavior w/ `abstract`
+  - can require inheritance to use class
+  - can require derived class to override 1+ methods
+
+### Inheritance and Constructors
+
+> - constructors are **not** inherited
+> - each class has its own constructor
+
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
@@ -211,8 +244,6 @@ class Flight {
 [m04.note]: #4-using-static-members
 [m05.note]: #5-a-closer-look-at-methods
 [m06.note]: #6-class-inheritance
-[m06.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/06-ClassInheritance
-[m07.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/07-MoreAboutInheritance
-[m08.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/08-WorkingWithEnums
+[m07.note]: #7-more-about-inheritance
 [m09.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/09-CreatingAbstractRelationshipsWithInterfaces
 [m10.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/10-NestedTypesAndAnonymousClasses
