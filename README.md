@@ -8,7 +8,7 @@
 6. Class Inheritance [[NOTE][m06.note]]
 7. More About Inheritance [[NOTE][m07.note]]
 8. Working with Enums [[NOTE][m08.note]]
-9. Creating Abstract Relationships with Interfaces
+9. Creating Abstract Relationships with Interfaces [[NOTE][m09.note]]
 10. Nested Types and Anonymous Classes
 
 ## 2. Understanding Java Classes and Objects
@@ -324,6 +324,110 @@ public enum FlightCrewJob {
 }
 ```
 
+## 9. Creating Abstract Relationships with Interfaces
+
+### Understanding Interfaces
+
+- effective software development
+    - relies on re-usability
+- class inheritance is part of the solution
+    - allows one class to leverage the implementation details of another
+    - has limitations: a class can only extend one class
+    - constrains realistically available usability
+
+#### Interfaces
+
+- defines a contract
+- provides a list of operations
+- does not focus on implemnentation details
+
+classes implement interfaces
+
+- express conformance to contract
+- provide necessary methods
+
+### The `Comparable` Interface
+
+- demonstrates the value of interfaces
+- challenge
+    - objects often need to be ordered
+    - rules for ordering differ for each class
+- `Comparable` Interface
+    - provides a contract for ordering
+    - enables broadly reusable sorting utilities
+    - no need for knowledge of a specific class
+- exposes one method: `compareTo`
+    - receives a reference to another object
+    - indicates relative relationship
+    - indicates ordering b/w current object and received object
+    - return value
+        - negative: current is ordered first
+        - positive: received is ordered first
+        - zero: current and received are equal
+
+### Generic Interfaces
+
+```java
+public interface Comparable<T> {
+    int compareTo(T o);
+}
+```
+
+```java
+class Passenger implements Comparable<Passenger> {
+    public int compareTo(Passenger p) {
+        //...
+    }
+}
+```
+
+### Implementing Multiple Interfaces
+
+- a class can implement multiple interfaces
+- separated by comma
+- no limit on number of interfaces a class can implement
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Flight implements Comparable<Flight>, Iterable<Passenger> {
+    private ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+
+    public int compareTo(Flight that) {
+        //...
+    }
+
+    public Iterator<Passenger> iterator() {
+        return passengers.iterator();
+    }
+    //...
+}
+```
+
+### Declaring an Interface
+
+- similar to declaring a class
+- use `interface` keyword
+- methods
+    - name, parameters, and return type
+    - implicitly `public`
+- constant fields (typed named values)
+    - typed named values
+    - implicitly `public`, `final`, and `static`
+
+#### Extending Interfaces
+
+- an interface can extend another, use `extends` keyword
+- implementing a _derived_ interface
+    - implies implementation of base interface as well
+
+### Adding a Default Method to an Interface
+
+- use `default` keyword
+- provide implementation
+- class that implement the interface are not required to implement it
+
 ##
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
@@ -336,5 +440,6 @@ public enum FlightCrewJob {
 [m06.note]: #6-class-inheritance
 [m07.note]: #7-more-about-inheritance
 [m08.note]: #8-working-with-enums
+[m09.note]: #9-creating-abstract-relationships-with-interfaces
 [m09.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/09-CreatingAbstractRelationshipsWithInterfaces
 [m10.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/10-NestedTypesAndAnonymousClasses
