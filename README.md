@@ -16,19 +16,19 @@
 ### Basic Access Modifiers
 
 | Modifier  | Visibility               | Classes | Members |
-| --------- | ------------------------ | ------- | ------- |
+|-----------|--------------------------|---------|---------|
 |           | only w/i own package     | Y       | Y       |
 | `public`  | everywhere               | Y       | Y       |
 | `private` | only w/i declaring class | N*      | Y       |
 
 \* available to nested classes
 
-## 3. Implementing Class Constructors and Initializer s
+## 3. Implementing Class Constructors and Initializers
 
 ### Default Initial State of Fields
 
 | `byte`/`short`/`int`/`long` | `float`/`double` | `char`     | `boolean` | Reference types |
-| --------------------------- | ---------------- | ---------- | --------- | --------------- |
+|-----------------------------|------------------|------------|-----------|-----------------|
 | `0`                         | `0.0`            | `'\u0000'` | `false`   | `null`          |
 
 ### Number of Constructors
@@ -171,7 +171,7 @@ class Main {
 ### Object Class Methods
 
 | Method     | Description                                                     |
-| ---------- | --------------------------------------------------------------- |
+|------------|-----------------------------------------------------------------|
 | `clone`    | create new object instance that duplicates the current instance |
 | `hashCode` | get a hash code for current instance                            |
 | `getClass` | return type information for the current instance                |
@@ -293,7 +293,7 @@ class Main {
 ### Common Enum Methods
 
 | Method    | Description                                                     |
-| --------- | --------------------------------------------------------------- |
+|-----------|-----------------------------------------------------------------|
 | `values`  | returns array containing all values                             |
 | `valueOf` | returns the value that corresponds to a string (case sensitive) |
 
