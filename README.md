@@ -204,10 +204,11 @@ class Flight {
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
 [m01.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/main
-[m02.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/02-UnderstandingJavaClassesAndObjects
-[m03.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/03-ImplementingClassConstructorsAndInitializers
-[m04.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/04-UsingStaticMembers
-[m05.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/05-ACloserLookAtMethods
+[m02.note]: #2-understanding-java-classes-and-objects
+[m03.note]: #3-implementing-class-constructors-and-initializers
+[m04.note]: #4-using-static-members
+[m05.note]: #5-a-closer-look-at-methods
+[m06.note]: #6-class-inheritance
 [m06.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/06-ClassInheritance
 [m07.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/07-MoreAboutInheritance
 [m08.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/08-WorkingWithEnums
