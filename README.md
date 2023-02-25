@@ -7,7 +7,7 @@
 5. A Closer Look at Methods [[NOTE][m05.note]]
 6. Class Inheritance [[NOTE][m06.note]]
 7. More About Inheritance [[NOTE][m07.note]]
-8. Working with Enums
+8. Working with Enums [[NOTE][m08.note]]
 9. Creating Abstract Relationships with Interfaces
 10. Nested Types and Anonymous Classes
 
@@ -235,6 +235,96 @@ class Flight {
 > - constructors are **not** inherited
 > - each class has its own constructor
 
+## 8. Working with Enums
+
+**Enumeration Types:** useful for defining a type w/ a finite list of valid values
+
+- declare using the `enum` keyword
+- provide a comma-separated value list
+- all uppercase by convention
+
+```java
+public enum FlightCrewJob {
+    FLIGHT_ATTENDANT,
+    COPILOT,
+    PILOT
+}
+```
+
+- conditional logic
+- enums support equality tests
+- can use `==` and `!=` operators
+- enums support switch statements
+
+```java
+class Main {
+    public static void main(String[] args) {
+        FLightCrewJob job1 = FlightCrewJob.PILOT;
+        FLightCrewJob job2 = FlightCrewJob.FLIGHT_ATTENDANT;
+        if (job1 == FlightCreqJob.PILOT) {
+            System.out.println("job1 is PILOT");
+        }
+        if (job1 != job2)
+            System.out.println("job1 and job2 are different");
+
+        switch (job1) {
+            case FLIGHT_ATTENDANT:
+                //...
+                break;
+            case PILOT:
+                //...
+                break;
+            default:
+                //...
+        }
+    }
+}
+```
+
+### Relative Comparisons and Common Methods
+
+- values are ordered
+- 1st value is lowest
+- last value is highest
+- use `compareTo` for relative comparison
+    - returns -n, 0, +n
+    - indicates current instance's ordering relative to another value
+
+### Common Enum Methods
+
+| Method    | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| `values`  | returns array containing all values                             |
+| `valueOf` | returns the value that corresponds to a string (case sensitive) |
+
+### Enum Types Are Classes
+
+- implicit inherit from Java's `Enum` class
+- enum types can have members: fields, methods, constructors
+- enum values
+    - each value is an instance of the enum type
+    - declaring the value creates the instance
+    - can leverage the enum type's constructor
+
+```java
+public enum FlightCrewJob {
+    FLIGHT_ATTENDANT("Flight Attendant"), // it's these values themselves that are creating the instances
+    COPILOT("First Officer"), // so when calling the constructor we do it through them
+    PILOT("Captain"); // <- needs semicolon when adding members
+
+    private String title;
+
+    private FlightCrewJob(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+}
+```
+
+##
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
@@ -245,5 +335,6 @@ class Flight {
 [m05.note]: #5-a-closer-look-at-methods
 [m06.note]: #6-class-inheritance
 [m07.note]: #7-more-about-inheritance
+[m08.note]: #8-working-with-enums
 [m09.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/09-CreatingAbstractRelationshipsWithInterfaces
 [m10.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/10-NestedTypesAndAnonymousClasses
