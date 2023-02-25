@@ -3,7 +3,7 @@
 1. **Course Overview** [[GITHUB][m01.gh]]
 2. Understanding Java Classes and Objects [[NOTE][m02.note]]
 3. Implementing Class Constructors and Initializers [[NOTE][m03.note]]
-4. Using Static Members
+4. Using Static Members [[NOTE][m04.note]]
 5. A Closer Look at Methods
 6. Class Inheritance
 7. More About Inheritance
@@ -59,6 +59,48 @@ public class Flight {
     }
     
     //...
+}
+```
+
+## 4. Using Static Members
+
+- static members are shared class-wide
+- not associated w/ individual instances
+- declare using `static` keyword
+
+### Static Members
+
+- **static field**
+  - value not associated w/ specific instance
+  - all instances access the same value
+- **static method**
+  - performs action not tied to a specific instance
+  - has access to static members only
+- **static import**
+  - used w/ static methods
+  - allows method name to be used w/o being class qualified
+    - `import static com.pluralsight.flightapp.Flight.getAllPassengers();` 
+    - `Flight.getAllPassengers();` -> `getAllPassengers()`
+
+### Static Initialization Blocks
+
+- perform one-time type initialization
+- executed before type's first use
+- has access to static members only
+
+```java
+public class Flight {
+    private int passengers, seats = 150;
+    private static int allPassengers, maxPassengersPerFlight;
+    
+    static {
+        AdminService admin = new AdminService();
+        admin.connect();
+        maxPassengersPerFlight = admin.isRestricted()
+                ? admin.getMaxFlightPassengers() // value is fetched only once
+                : Integer.MAX_VALUE;
+        admin.close();
+    }
 }
 ```
 
