@@ -1,7 +1,7 @@
 # Learn With Pluralsight: [Working with Classes and Interfaces in Java 11][url.course]
 
 1. **Course Overview** [[GITHUB][m01.gh]]
-2. Understanding Java Classes and Objects
+2. Understanding Java Classes and Objects [[NOTE][m02.note]]
 3. Implementing Class Constructors and Initializers
 4. Using Static Members
 5. A Closer Look at Methods
@@ -10,6 +10,18 @@
 8. Working with Enums
 9. Creating Abstract Relationships with Interfaces
 10. Nested Types and Anonymous Classes
+
+## 2. Understanding Java Classes and Objects
+
+### Basic Access Modifiers
+
+| Modifier  | Visibility               | Classes | Members |
+|-----------|--------------------------|---------|---------|
+|           | only w/i own package     | Y       | Y       |
+| `public`  | everywhere               | Y       | Y       |
+| `private` | only w/i declaring class | N*      | Y       |
+
+\* available to nested classes
 
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
 
