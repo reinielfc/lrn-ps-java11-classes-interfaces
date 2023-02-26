@@ -9,7 +9,7 @@
 7. More About Inheritance [[NOTE][m07.note]]
 8. Working with Enums [[NOTE][m08.note]]
 9. Creating Abstract Relationships with Interfaces [[NOTE][m09.note]]
-10. Nested Types and Anonymous Classes
+10. Nested Types and Anonymous Classes [[NOTE][m10.note]]
 
 ## 2. Understanding Java Classes and Objects
 
@@ -428,10 +428,7 @@ public class Flight implements Comparable<Flight>, Iterable<Passenger> {
 - provide implementation
 - class that implement the interface are not required to implement it
 
-##
-
 [url.course]: https://app.pluralsight.com/library/courses/working-classes-interfaces-java
-
 [m01.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/main
 [m02.note]: #2-understanding-java-classes-and-objects
 [m03.note]: #3-implementing-class-constructors-and-initializers
@@ -441,5 +438,4 @@ public class Flight implements Comparable<Flight>, Iterable<Passenger> {
 [m07.note]: #7-more-about-inheritance
 [m08.note]: #8-working-with-enums
 [m09.note]: #9-creating-abstract-relationships-with-interfaces
-[m09.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/09-CreatingAbstractRelationshipsWithInterfaces
-[m10.gh]: https://github.com/reinielfc/lrn-ps-java11-classes-interfaces/tree/10-NestedTypesAndAnonymousClasses
+[m10.note]: 10-NestedTypesAndAnonymousClasses.note.md
